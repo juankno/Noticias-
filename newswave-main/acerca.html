@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NewsWave, plataforma web de noticias desarrollada como proyecto academico del modulo de Desarrollo de Front-end.">
+  <title>NewsWave | Acerca de</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="data/noticias-respaldo.js" defer></script>
+  <script src="assets/js/datos.js" defer></script>
+  <script src="assets/js/layout.js" defer></script>
+</head>
+<body>
+  <!-- ============================ Encabezado ============================ -->
+  <div class="barra-superior">
+    <div class="wrap">
+      <span data-fecha-hoy>Bogotá, Colombia</span>
+      <span>Edición digital &middot; Proyecto académico</span>
+    </div>
+  </div>
+
+  <header class="cabecera">
+    <div class="wrap">
+      <a class="marca" href="index.html">
+        <span class="marca__icono">N</span>
+        <span class="marca__nombre">News<span>Wave</span></span>
+      </a>
+
+      <nav class="menu" id="menu-principal" aria-label="Menú principal">
+        <a href="index.html">Inicio</a>
+        <a href="noticias.html">Noticias</a>
+        <a href="favoritos.html">Favoritos</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="acerca.html" class="activo">Acerca de</a>
+      </nav>
+
+      <div class="acciones-cabecera">
+        <form class="buscador-cabecera" role="search">
+          <span aria-hidden="true">&#128269;</span>
+          <input type="search" placeholder="Buscar noticias…" aria-label="Buscar noticias">
+        </form>
+        <a class="boton boton--primario boton--pequeno boton-suscribirse" href="contacto.html">Suscribirse</a>
+        <button class="boton-menu" type="button" aria-expanded="false"
+                aria-controls="menu-principal" aria-label="Abrir menú">&#9776;</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="barra-contexto">
+      <div class="wrap">
+        <p class="ruta"><a href="index.html">Inicio</a> / <strong>Acerca de</strong></p>
+        <h1>Acerca de NewsWave</h1>
+      </div>
+    </div>
+
+    <section class="seccion">
+      <div class="wrap texto-largo">
+        <p>NewsWave es una plataforma web de noticias desarrollada como proyecto del
+          módulo de Desarrollo de Front-end. El aplicativo permite explorar publicaciones
+          de seis categorías, consultar el detalle de cada noticia y comunicarse con la
+          redacción por medio de un formulario.</p>
+
+        <h2>Cómo está construido</h2>
+        <p>Esta versión corresponde a la Entrega 2 y cubre el desarrollo en HTML, CSS y
+          JavaScript, junto con el renderizado dinámico del catálogo desde un archivo JSON
+          local. No se utilizan librerías externas.</p>
+        <ul>
+          <li><strong>HTML5 semántico:</strong> se emplean las etiquetas header, nav,
+            main, section, article, aside y footer.</li>
+          <li><strong>CSS:</strong> variables para el sistema de diseño, CSS Grid para las
+            retículas y Flexbox para los componentes internos.</li>
+          <li><strong>JavaScript:</strong> carga del archivo JSON con fetch y generación
+            dinámica de las tarjetas, los filtros, la búsqueda y la paginación.</li>
+          <li><strong>Diseño responsivo:</strong> tres puntos de quiebre para escritorio,
+            tableta y dispositivos móviles.</li>
+        </ul>
+
+        <h2>Contenido</h2>
+        <p>Las noticias y las imágenes que se muestran son material de demostración
+          creado para el ejercicio académico y no corresponden a hechos reales.</p>
+
+        <h2>Siguientes pasos</h2>
+        <p>En los puntos restantes de la entrega se implementarán la gestión de favoritos
+          con almacenamiento en el navegador, las validaciones del formulario de contacto
+          y la publicación del proyecto en un repositorio de GitHub.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================== Pie ================================ -->
+  <footer class="pie">
+    <div class="wrap">
+      <div class="pie__columnas">
+        <div>
+          <a class="marca" href="index.html">
+            <span class="marca__icono">N</span>
+            <span class="marca__nombre">News<span>Wave</span></span>
+          </a>
+          <p class="pie__nota">Plataforma web de noticias desarrollada como proyecto
+            académico del módulo de Desarrollo de Front-end. El contenido informativo
+            es de carácter demostrativo.</p>
+        </div>
+        <div>
+          <h3>Secciones</h3>
+          <ul>
+            <li><a href="noticias.html?categoria=tecnologia">Tecnología</a></li>
+            <li><a href="noticias.html?categoria=educacion">Educación</a></li>
+            <li><a href="noticias.html?categoria=turismo">Turismo</a></li>
+            <li><a href="noticias.html?categoria=comercial">Comercial</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Aplicativo</h3>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="noticias.html">Noticias</a></li>
+            <li><a href="favoritos.html">Favoritos</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Contacto</h3>
+          <ul>
+            <li>contacto@newswave.co</li>
+            <li>+57 601 000 0000</li>
+            <li>Bogotá D. C., Colombia</li>
+            <li>Lunes a viernes, 8:00 a 18:00</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pie__final">
+        <span>&copy; <span data-anio>2026</span> NewsWave &middot; Proyecto académico</span>
+        <span>Política de privacidad &middot; Términos de uso &middot; Mapa del sitio</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

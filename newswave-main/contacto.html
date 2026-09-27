@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="NewsWave, plataforma web de noticias desarrollada como proyecto academico del modulo de Desarrollo de Front-end."
+    />
+    <title>NewsWave | Contacto</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script src="data/noticias-respaldo.js" defer></script>
+    <script src="assets/js/datos.js" defer></script>
+    <script src="assets/js/layout.js" defer></script>
+    <script src="assets/js/contacto.js" defer></script>
+  </head>
+  <body>
+    <!-- ============================ Encabezado ============================ -->
+    <div class="barra-superior">
+      <div class="wrap">
+        <span data-fecha-hoy>Bogotá, Colombia</span>
+        <span>Edición digital &middot; Proyecto académico</span>
+      </div>
+    </div>
+
+    <header class="cabecera">
+      <div class="wrap">
+        <a class="marca" href="index.html">
+          <span class="marca__icono">N</span>
+          <span class="marca__nombre">News<span>Wave</span></span>
+        </a>
+
+        <nav class="menu" id="menu-principal" aria-label="Menú principal">
+          <a href="index.html">Inicio</a>
+          <a href="noticias.html">Noticias</a>
+          <a href="favoritos.html">Favoritos</a>
+          <a href="contacto.html" class="activo">Contacto</a>
+          <a href="acerca.html">Acerca de</a>
+        </nav>
+
+        <div class="acciones-cabecera">
+          <form class="buscador-cabecera" role="search">
+            <span aria-hidden="true">&#128269;</span>
+            <input
+              type="search"
+              placeholder="Buscar noticias…"
+              aria-label="Buscar noticias"
+            />
+          </form>
+          <a
+            class="boton boton--primario boton--pequeno boton-suscribirse"
+            href="contacto.html"
+            >Suscribirse</a
+          >
+          <button
+            class="boton-menu"
+            type="button"
+            aria-expanded="false"
+            aria-controls="menu-principal"
+            aria-label="Abrir menú"
+          >
+            &#9776;
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="barra-contexto">
+        <div class="wrap">
+          <p class="ruta">
+            <a href="index.html">Inicio</a> / <strong>Contacto</strong>
+          </p>
+          <h1>Contáctanos</h1>
+          <p class="entradilla mt-8">
+            Escríbenos para enviar una noticia, reportar un error o resolver una
+            inquietud sobre el aplicativo.
+          </p>
+        </div>
+      </div>
+
+      <div class="wrap contacto">
+        <form class="formulario" id="formulario-contacto" novalidate>
+          <h2 style="font-size: 24px">Formulario de contacto</h2>
+          <p class="meta mt-8">
+            Los campos marcados con <span style="color: var(--red)">*</span> son
+            obligatorios.
+          </p>
+
+          <div class="formulario__fila">
+            <div class="campo">
+              <label for="nombre"
+                >Nombre completo <span class="obligatorio">*</span></label
+              >
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                placeholder="Escribe tu nombre"
+              />
+            </div>
+            <div class="campo">
+              <label for="correo"
+                >Correo electrónico <span class="obligatorio">*</span></label
+              >
+              <input
+                type="email"
+                id="correo"
+                name="correo"
+                placeholder="nombre@correo.com"
+              />
+            </div>
+          </div>
+
+          <div class="formulario__fila">
+            <div class="campo">
+              <label for="telefono">Teléfono</label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                placeholder="+57 300 000 0000"
+              />
+            </div>
+            <div class="campo">
+              <label for="asunto"
+                >Asunto <span class="obligatorio">*</span></label
+              >
+              <select id="asunto" name="asunto">
+                <option value="">Selecciona una opción</option>
+                <option>Enviar una noticia</option>
+                <option>Reportar un error</option>
+                <option>Sugerencias</option>
+                <option>Otro</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="campo" style="margin-top: 18px">
+            <label for="mensaje"
+              >Mensaje <span class="obligatorio">*</span></label
+            >
+            <textarea
+              id="mensaje"
+              name="mensaje"
+              placeholder="Cuéntanos en qué podemos ayudarte…"
+            ></textarea>
+          </div>
+
+          <div class="formulario__acciones">
+            <button class="boton boton--primario" type="submit">
+              Enviar mensaje
+            </button>
+            <button class="boton boton--claro" type="reset">
+              Limpiar formulario
+            </button>
+          </div>
+
+          <p class="meta mt-16">
+            Las validaciones y el mensaje de confirmación corresponden al
+            siguiente punto de la Entrega 2.
+          </p>
+        </form>
+
+        <div>
+          <div class="panel">
+            <h3 style="font-size: 21px">Información de contacto</h3>
+            <p class="meta mt-16" style="line-height: 2.1">
+              contacto@newswave.co<br />
+              +57 601 000 0000<br />
+              Calle 100 # 15-20, Bogotá D. C.<br />
+              Lunes a viernes, 8:00 a 18:00
+            </p>
+          </div>
+          <img
+            class="mapa mt-24"
+            src="assets/img/noticia-03.jpg"
+            alt="Ubicación de la redacción"
+          />
+          <p class="meta mt-8">
+            Ubicación de la redacción (imagen de referencia).
+          </p>
+          <div class="panel panel--suave mt-24">
+            <h3 style="font-size: 19px">Preguntas frecuentes</h3>
+            <p class="meta mt-16" style="line-height: 1.9">
+              ¿Cómo guardo una noticia en favoritos?<br />
+              ¿Puedo publicar una noticia propia?<br />
+              ¿Cómo reporto un enlace roto?
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ============================== Pie ================================ -->
+    <footer class="pie">
+      <div class="wrap">
+        <div class="pie__columnas">
+          <div>
+            <a class="marca" href="index.html">
+              <span class="marca__icono">N</span>
+              <span class="marca__nombre">News<span>Wave</span></span>
+            </a>
+            <p class="pie__nota">
+              Plataforma web de noticias desarrollada como proyecto académico
+              del módulo de Desarrollo de Front-end. El contenido informativo es
+              de carácter demostrativo.
+            </p>
+          </div>
+          <div>
+            <h3>Secciones</h3>
+            <ul>
+              <li>
+                <a href="noticias.html?categoria=tecnologia">Tecnología</a>
+              </li>
+              <li><a href="noticias.html?categoria=educacion">Educación</a></li>
+              <li><a href="noticias.html?categoria=turismo">Turismo</a></li>
+              <li><a href="noticias.html?categoria=comercial">Comercial</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Aplicativo</h3>
+            <ul>
+              <li><a href="index.html">Inicio</a></li>
+              <li><a href="noticias.html">Noticias</a></li>
+              <li><a href="favoritos.html">Favoritos</a></li>
+              <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Contacto</h3>
+            <ul>
+              <li>contacto@newswave.co</li>
+              <li>+57 601 000 0000</li>
+              <li>Bogotá D. C., Colombia</li>
+              <li>Lunes a viernes, 8:00 a 18:00</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pie__final">
+          <span
+            >&copy; <span data-anio>2026</span> NewsWave &middot; Proyecto
+            académico</span
+          >
+          <span
+            >Política de privacidad &middot; Términos de uso &middot; Mapa del
+            sitio</span
+          >
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

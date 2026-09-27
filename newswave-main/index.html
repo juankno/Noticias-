@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NewsWave, plataforma web de noticias desarrollada como proyecto academico del modulo de Desarrollo de Front-end.">
+  <title>NewsWave | Inicio</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="data/noticias-respaldo.js" defer></script>
+  <script src="assets/js/datos.js" defer></script>
+  <script src="assets/js/layout.js" defer></script>
+  <script src="assets/js/inicio.js" defer></script>
+</head>
+<body>
+  <!-- ============================ Encabezado ============================ -->
+  <div class="barra-superior">
+    <div class="wrap">
+      <span data-fecha-hoy>Bogotá, Colombia</span>
+      <span>Edición digital &middot; Proyecto académico</span>
+    </div>
+  </div>
+
+  <header class="cabecera">
+    <div class="wrap">
+      <a class="marca" href="index.html">
+        <span class="marca__icono">N</span>
+        <span class="marca__nombre">News<span>Wave</span></span>
+      </a>
+
+      <nav class="menu" id="menu-principal" aria-label="Menú principal">
+        <a href="index.html" class="activo">Inicio</a>
+        <a href="noticias.html">Noticias</a>
+        <a href="favoritos.html">Favoritos</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="acerca.html">Acerca de</a>
+      </nav>
+
+      <div class="acciones-cabecera">
+        <form class="buscador-cabecera" role="search">
+          <span aria-hidden="true">&#128269;</span>
+          <input type="search" placeholder="Buscar noticias…" aria-label="Buscar noticias">
+        </form>
+        <a class="boton boton--primario boton--pequeno boton-suscribirse" href="contacto.html">Suscribirse</a>
+        <button class="boton-menu" type="button" aria-expanded="false"
+                aria-controls="menu-principal" aria-label="Abrir menú">&#9776;</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Noticia principal (se carga desde data/noticias.json) -->
+    <section class="principal">
+      <div class="wrap">
+        <div class="principal__grid" id="noticia-principal">
+          <p class="entradilla">Cargando la noticia principal…</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Noticias destacadas -->
+    <section class="seccion">
+      <div class="wrap">
+        <div class="encabezado-seccion">
+          <div>
+            <span class="antetitulo">Lo más leído</span>
+            <h2 class="mt-8">Noticias destacadas</h2>
+          </div>
+          <a href="noticias.html">Ver todas las noticias</a>
+        </div>
+        <div class="rejilla rejilla--3" id="noticias-destacadas">
+          <p class="entradilla">Cargando noticias…</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Secciones temáticas -->
+    <section class="seccion seccion--suave">
+      <div class="wrap">
+        <div class="encabezado-seccion">
+          <div>
+            <span class="antetitulo">Explora</span>
+            <h2 class="mt-8">Secciones informativas</h2>
+          </div>
+        </div>
+        <div class="rejilla rejilla--4" id="secciones-tematicas"></div>
+      </div>
+    </section>
+
+    <!-- Llamado a la acción y testimonio -->
+    <section class="seccion">
+      <div class="wrap bloque-doble">
+        <div>
+          <span class="antetitulo">Llamado a la acción</span>
+          <h2 class="mt-8" style="font-size:32px">Guarda tus noticias y léelas cuando quieras</h2>
+          <p class="entradilla mt-16">Marca cualquier noticia con la estrella y quedará
+            almacenada en tu lista de favoritos dentro del navegador, sin necesidad de
+            crear una cuenta.</p>
+          <div class="principal__acciones">
+            <a class="boton boton--oscuro" href="favoritos.html">Ver mis favoritos</a>
+            <a class="boton boton--claro" href="contacto.html">Contactar a la redacción</a>
+          </div>
+        </div>
+        <div class="testimonio">
+          <span class="etiqueta etiqueta--roja">Testimonio</span>
+          <p>“Encuentro en un solo lugar las noticias que antes buscaba en cinco portales
+            distintos, y puedo guardarlas para leerlas con calma.”</p>
+          <div class="testimonio__autor">
+            <img class="testimonio__avatar" src="assets/img/noticia-02.jpg" alt="">
+            <div>
+              <div style="font-weight:700;font-size:14px">Laura Méndez</div>
+              <div class="meta">Lectora frecuente &middot; Bogotá</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================== Pie ================================ -->
+  <footer class="pie">
+    <div class="wrap">
+      <div class="pie__columnas">
+        <div>
+          <a class="marca" href="index.html">
+            <span class="marca__icono">N</span>
+            <span class="marca__nombre">News<span>Wave</span></span>
+          </a>
+          <p class="pie__nota">Plataforma web de noticias desarrollada como proyecto
+            académico del módulo de Desarrollo de Front-end. El contenido informativo
+            es de carácter demostrativo.</p>
+        </div>
+        <div>
+          <h3>Secciones</h3>
+          <ul>
+            <li><a href="noticias.html?categoria=tecnologia">Tecnología</a></li>
+            <li><a href="noticias.html?categoria=educacion">Educación</a></li>
+            <li><a href="noticias.html?categoria=turismo">Turismo</a></li>
+            <li><a href="noticias.html?categoria=comercial">Comercial</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Aplicativo</h3>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="noticias.html">Noticias</a></li>
+            <li><a href="favoritos.html">Favoritos</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Contacto</h3>
+          <ul>
+            <li>contacto@newswave.co</li>
+            <li>+57 601 000 0000</li>
+            <li>Bogotá D. C., Colombia</li>
+            <li>Lunes a viernes, 8:00 a 18:00</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pie__final">
+        <span>&copy; <span data-anio>2026</span> NewsWave &middot; Proyecto académico</span>
+        <span>Política de privacidad &middot; Términos de uso &middot; Mapa del sitio</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

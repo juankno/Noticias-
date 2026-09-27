@@ -1,0 +1,102 @@
+/* ==========================================================================
+   NewsWave - contacto.js
+   Validación del formulario de contacto y manejo de estados de éxito/error.
+   ========================================================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+  "use strict";
+
+  var form = document.getElementById("formulario-contacto");
+  if (!form) {
+    return;
+  }
+
+  form.addEventListener("submit", function (evento) {
+    evento.preventDefault();
+
+    // Limpiar errores previos
+    limpiarErrores();
+
+    var nombre = document.getElementById("nombre");
+    var correo = document.getElementById("correo");
+    var asunto = document.getElementById("asunto");
+    var mensaje = document.getElementById("mensaje");
+
+    var esValido = true;
+
+    // Validar nombre
+    if (!nombre.value.trim()) {
+      mostrarErrorCampo(nombre, "Por favor, escribe tu nombre completo.");
+      esValido = false;
+    }
+
+    // Validar correo
+    var regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!correo.value.trim()) {
+      mostrarErrorCampo(correo, "El correo electrónico es obligatorio.");
+      esValido = false;
+    } else if (!regexCorreo.test(correo.value.trim())) {
+      mostrarErrorCampo(
+        correo,
+        "Por favor, ingresa un correo electrónico válido.",
+      );
+      esValido = false;
+    }
+
+    // Validar asunto
+    if (!asunto.value) {
+      mostrarErrorCampo(asunto, "Selecciona una opción de asunto.");
+      esValido = false;
+    }
+
+    // Validar mensaje
+    if (!mensaje.value.trim() || mensaje.value.trim().length < 10) {
+      mostrarErrorCampo(
+        mensaje,
+        "El mensaje debe contener al menos 10 caracteres.",
+      );
+      esValido = false;
+    }
+
+    if (esValido) {
+      mostrarExito();
+    }
+  });
+
+  function mostrarErrorCampo(elemento, mensajeTexto) {
+    elemento.style.borderColor = "var(--red, #C8102E)";
+
+    var contenedorCampo = elemento.closest(".campo");
+    if (contenedorCampo) {
+      var errorDiv = document.createElement("div");
+      errorDiv.className = "error-mensaje";
+      errorDiv.style.color = "var(--red, #C8102E)";
+      errorDiv.style.fontSize = "12px";
+      errorDiv.style.marginTop = "4px";
+      errorDiv.textContent = mensajeTexto;
+      contenedorCampo.appendChild(errorDiv);
+    }
+  }
+
+  function limpiarErrores() {
+    var inputs = form.querySelectorAll("input, select, textarea");
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].style.borderColor = "";
+    }
+    var mensajesError = form.querySelectorAll(".error-mensaje");
+    for (var j = 0; j < mensajesError.length; j++) {
+      mensajesError[j].remove();
+    }
+  }
+
+  function mostrarExito() {
+    form.innerHTML =
+      "" +
+      '<div class="estado" style="padding: 32px 0;">' +
+      '  <div style="font-size: 40px; color: #28a745;">&#10004;</div>' +
+      '  <h3 class="mt-16">¡Mensaje enviado con éxito!</h3>' +
+      '  <p class="meta mt-8">Gracias por contactarnos. Nuestro equipo revisará tu solicitud y te responderá pronto.</p>' +
+      '  <a class="boton boton--oscuro mt-24" href="index.html">Volver al inicio</a>' +
+      "</div>";
+  }
+});

@@ -1,0 +1,245 @@
+{
+  "medio": "NewsWave",
+  "actualizado": "2026-09-27",
+  "categorias": [
+    { "id": "tecnologia", "nombre": "Tecnología", "descripcion": "Innovación, software y transformación digital." },
+    { "id": "educacion", "nombre": "Educación", "descripcion": "Formación, universidades y nuevas competencias." },
+    { "id": "turismo", "nombre": "Turismo", "descripcion": "Destinos, rutas y experiencias del país." },
+    { "id": "comercial", "nombre": "Comercial", "descripcion": "Mercados, comercio electrónico y consumo." },
+    { "id": "ciencia", "nombre": "Ciencia", "descripcion": "Investigación, salud y medio ambiente." },
+    { "id": "deportes", "nombre": "Deportes", "descripcion": "Competencias, ligas y deporte formativo." }
+  ],
+  "noticias": [
+    {
+      "id": 1,
+      "titulo": "Colombia pone en marcha su primer centro nacional de datos abiertos",
+      "categoria": "tecnologia",
+      "resumen": "La nueva infraestructura permitirá a universidades y empresas consumir información pública mediante servicios estandarizados.",
+      "imagen": "assets/img/noticia-01.jpg",
+      "credito": "Imagen representativa de la noticia. Archivo del aplicativo.",
+      "fecha": "2026-09-26",
+      "autor": "Redacción NewsWave",
+      "lectura": 4,
+      "destacada": true,
+      "principal": true,
+      "tags": ["datos abiertos", "desarrollo web", "innovación"],
+      "contenido": [
+        "El centro nacional de datos abiertos entró en operación esta semana con un catálogo inicial de trescientos conjuntos de información provenientes de entidades del orden nacional. La plataforma expone cada conjunto mediante servicios web documentados, lo que facilita su consumo desde aplicaciones de escritorio, móviles y web.",
+        "Según los responsables del proyecto, el objetivo es reducir el tiempo que los equipos de desarrollo dedican a la búsqueda y la depuración de información pública. Durante la fase piloto, cinco universidades utilizaron los servicios para construir tableros de visualización con tecnologías front-end de uso libre.",
+        "La siguiente fase contempla la publicación de información territorial y la apertura de un espacio de retroalimentación para que los desarrolladores reporten inconsistencias en los conjuntos publicados."
+      ],
+      "cita": "La estandarización de los servicios es lo que finalmente permite que una aplicación web consuma datos públicos sin dificultades."
+    },
+    {
+      "id": 2,
+      "titulo": "Universidades del país amplían la oferta de programas en desarrollo web",
+      "categoria": "educacion",
+      "resumen": "La demanda de perfiles front-end creció de forma sostenida durante el último año en las principales ciudades.",
+      "imagen": "assets/img/noticia-02.jpg",
+      "credito": "Imagen representativa de la noticia. Archivo del aplicativo.",
+      "fecha": "2026-09-26",
+      "autor": "Redacción NewsWave",
+      "lectura": 3,
+      "destacada": true,
+      "principal": false,
+      "tags": ["educación", "empleo", "front-end"],
+      "contenido": [
+        "Ocho instituciones de educación superior abrieron nuevos programas técnicos y profesionales orientados al desarrollo de aplicaciones web. La mayoría de estos programas incluye asignaturas de maquetación, accesibilidad y consumo de servicios.",
+        "Los empleadores consultados señalan que el conocimiento de HTML, CSS y JavaScript sigue siendo el requisito de entrada más frecuente, incluso en vacantes que mencionan frameworks como Angular o React.",
+        "Las universidades esperan que la oferta se amplíe a ciudades intermedias durante el próximo año, con apoyo de programas de formación virtual."
+      ],
+      "cita": "Antes de aprender un framework, el estudiante debe entender cómo se estructura y se estiliza una página."
+    },
+    {
+      "id": 3,
+      "titulo": "El eje cafetero cierra la temporada con ocupación hotelera histórica",
+      "categoria": "turismo",
+      "resumen": "Los operadores atribuyen el resultado a la promoción digital y a las nuevas rutas aéreas regionales.",
+      "imagen": "assets/img/noticia-03.jpg",
+      "credito": "Imagen representativa de la noticia. Archivo del aplicativo.",
+      "fecha": "2026-09-25",
+      "autor": "Redacción NewsWave",
+      "lectura": 5,
+      "destacada": true,
+      "principal": false,
+      "tags": ["turismo", "región", "economía"],
+      "contenido": [
+        "La ocupación hotelera de la región alcanzó el ochenta y siete por ciento durante la temporada, la cifra más alta registrada en los últimos cinco años. El crecimiento se concentró en alojamientos rurales y fincas productivas abiertas al público.",
+        "Los operadores explican que buena parte de las reservas se originó en canales digitales, en especial en sitios web propios y redes sociales, lo que redujo la dependencia de los intermediarios tradicionales.",
+        "Para la próxima temporada se proyecta la apertura de dos nuevas rutas aéreas regionales, que conectarán la zona con ciudades de la costa caribe."
+      ]
+    },
+    {
+      "id": 4,
+      "titulo": "El comercio electrónico local consolida el pago contra entrega",
+      "categoria": "comercial",
+      "resumen": "Los comercios pequeños reportan mayor conversión al ofrecer métodos de pago flexibles en sus tiendas en línea.",
+      "imagen": "assets/img/noticia-04.jpg",
+      "credito": "Imagen representativa de la noticia. Archivo del aplicativo.",
+      "fecha": "2026-09-25",
+      "autor": "Redacción NewsWave",
+      "lectura": 4,
+      "destacada": false,
+      "principal": false,
+      "tags": ["comercio electrónico", "pymes", "consumo"],
+      "contenido": [
+        "Un estudio realizado entre cuatrocientos comercios pequeños indica que las tiendas que ofrecen pago contra entrega registran una tasa de conversión superior a la de aquellas que solo aceptan pago en línea.",
+        "El informe señala que la desconfianza frente a los medios de pago digitales continúa siendo el principal motivo de abandono del carrito de compras, por encima del precio del envío.",
+        "Los autores recomiendan mostrar de forma visible las opciones de pago desde la ficha del producto y no únicamente en el paso final de la compra."
+      ]
+    },
+    {
+      "id": 5,
+      "titulo": "Investigadores desarrollan un sensor de bajo costo para la calidad del aire",
+      "categoria": "ciencia",
+      "resumen": "El dispositivo se apoya en componentes de uso libre y transmite mediciones en tiempo real a una plataforma web.",
+      "imagen": "assets/img/noticia-05.jpg",
+      "credito": "Imagen representativa de la noticia. Archivo del aplicativo.",
+      "fecha": "2026-09-24",
+      "autor": "Redacción NewsWave",
+      "lectura": 6,
+      "destacada": false,
+      "principal": false,
+      "tags": ["ciencia", "medio ambiente", "hardware"],
+      "contenido": [
+        "Un grupo de investigación desarrolló un sensor de material particulado cuyo costo de fabricación es cercano a la décima parte de los equipos comerciales. El prototipo utiliza componentes de bajo costo y una placa de desarrollo de uso libre.",
+        "Las mediciones se transmiten cada cinco minutos a una plataforma web que grafica los datos y permite descargarlos en formato abierto para su análisis posterior.",
+        "El equipo instaló veinte sensores en dos ciudades del país y espera publicar los resultados de la validación durante el primer semestre del próximo año."
+      ],
+      "cita": "El valor del proyecto no está solo en el sensor, sino en que cualquier persona pueda consultar los datos desde el navegador."
+    },
+    {
+      "id": 6,
+      "titulo": "La liga femenina estrena formato de transmisión digital",
+      "categoria": "deportes",
+      "resumen": "La competencia llegará a nuevas audiencias mediante plataformas gratuitas con narración en español.",
+      "imagen": "assets/img/noticia-06.jpg",
+      "credito": "Imagen representativa de la noticia. Archivo del aplicativo.",
+      "fecha": "2026-09-24",
+      "autor": "Redacción NewsWave",
+      "lectura": 3,
+      "destacada": false,
+      "principal": false,
+      "tags": ["deportes", "transmisión", "liga femenina"],
+      "contenido": [
+        "La organización de la liga anunció que todos los partidos de la fase regular se transmitirán de forma gratuita a través de plataformas digitales, con narración y análisis en español.",
+        "La decisión busca ampliar la audiencia de la competencia y facilitar el acceso desde dispositivos móviles, que concentran la mayor parte del consumo deportivo en línea.",
+        "Los clubes participantes también publicarán resúmenes y estadísticas en sus sitios web oficiales al finalizar cada jornada."
+      ]
+    },
+    {
+      "id": 7,
+      "titulo": "Angular consolida su adopción en el sector financiero colombiano",
+      "categoria": "tecnologia",
+      "resumen": "Los equipos destacan la organización por componentes y el tipado estricto como principales beneficios.",
+      "imagen": "assets/img/noticia-07.jpg",
+      "credito": "Imagen representativa de la noticia. Archivo del aplicativo.",
+      "fecha": "2026-09-23",
+      "autor": "Redacción NewsWave",
+      "lectura": 5,
+      "destacada": false,
+      "principal": false,
+      "tags": ["angular", "banca", "front-end"],
+      "contenido": [
+        "Una encuesta aplicada a equipos de desarrollo de entidades financieras muestra que Angular es el framework más utilizado en sus aplicaciones internas, seguido por React.",
+        "Los líderes técnicos consultados destacan la organización del código por componentes, el tipado estricto y la existencia de convenciones claras como los principales beneficios para equipos numerosos.",
+        "Entre las dificultades mencionadas aparecen la curva de aprendizaje inicial y el tiempo requerido para actualizar las aplicaciones entre versiones mayores."
+      ]
+    },
+    {
+      "id": 8,
+      "titulo": "Programas de alfabetización digital llegan a municipios apartados",
+      "categoria": "educacion",
+      "resumen": "La iniciativa combina formación presencial con recursos web accesibles desde dispositivos móviles.",
+      "imagen": "assets/img/noticia-08.jpg",
+      "credito": "Imagen representativa de la noticia. Archivo del aplicativo.",
+      "fecha": "2026-09-23",
+      "autor": "Redacción NewsWave",
+      "lectura": 4,
+      "destacada": false,
+      "principal": false,
+      "tags": ["educación", "inclusión digital", "regiones"],
+      "contenido": [
+        "El programa atenderá a treinta municipios durante el próximo año, con jornadas presenciales de formación básica en uso de internet, trámites en línea y seguridad digital.",
+        "El material de apoyo se publicará en un sitio web diseñado para funcionar con conexiones lentas y desde teléfonos móviles de gama baja, siguiendo criterios de accesibilidad.",
+        "Los organizadores esperan atender a cerca de diez mil personas, con prioridad en adultos mayores y pequeños productores rurales."
+      ]
+    },
+    {
+      "id": 9,
+      "titulo": "Las bibliotecas públicas digitalizan su catálogo y lo abren a consulta en línea",
+      "categoria": "educacion",
+      "resumen": "El nuevo portal permite buscar por título, autor y materia desde cualquier navegador.",
+      "imagen": "assets/img/noticia-09.jpg",
+      "credito": "Imagen representativa de la noticia. Archivo del aplicativo.",
+      "fecha": "2026-09-22",
+      "autor": "Redacción NewsWave",
+      "lectura": 3,
+      "destacada": false,
+      "principal": false,
+      "tags": ["bibliotecas", "cultura", "acceso"],
+      "contenido": [
+        "La red de bibliotecas públicas terminó la digitalización de su catálogo y lo publicó en un portal de consulta abierta, que permite buscar por título, autor, materia y sede.",
+        "El portal informa la disponibilidad de cada ejemplar en tiempo real y permite reservar material para retirarlo en la sede seleccionada.",
+        "En una segunda fase se incorporará una sección de libros de dominio público para lectura directa desde el navegador."
+      ]
+    },
+    {
+      "id": 10,
+      "titulo": "Nuevas rutas ciclísticas conectan tres municipios de la sabana",
+      "categoria": "turismo",
+      "resumen": "El proyecto suma cuarenta kilómetros señalizados y puntos de servicio para visitantes.",
+      "imagen": "assets/img/noticia-10.jpg",
+      "credito": "Imagen representativa de la noticia. Archivo del aplicativo.",
+      "fecha": "2026-09-22",
+      "autor": "Redacción NewsWave",
+      "lectura": 4,
+      "destacada": false,
+      "principal": false,
+      "tags": ["turismo", "ciclismo", "sabana"],
+      "contenido": [
+        "El corredor ciclístico conecta tres municipios mediante cuarenta kilómetros de vía señalizada, con puntos de hidratación, talleres y zonas de descanso a lo largo del recorrido.",
+        "Los municipios publicaron el trazado en un mapa interactivo, con los niveles de dificultad y los servicios disponibles en cada tramo.",
+        "Las administraciones locales calculan que el corredor podrá recibir cerca de mil visitantes cada fin de semana."
+      ]
+    },
+    {
+      "id": 11,
+      "titulo": "El sector retail incorpora analítica para planear sus inventarios",
+      "categoria": "comercial",
+      "resumen": "Las cadenas medianas empiezan a reemplazar las hojas de cálculo por tableros web de seguimiento.",
+      "imagen": "assets/img/noticia-11.jpg",
+      "credito": "Imagen representativa de la noticia. Archivo del aplicativo.",
+      "fecha": "2026-09-21",
+      "autor": "Redacción NewsWave",
+      "lectura": 5,
+      "destacada": false,
+      "principal": false,
+      "tags": ["retail", "analítica", "inventarios"],
+      "contenido": [
+        "Varias cadenas de tamaño mediano iniciaron proyectos para centralizar la información de ventas e inventarios en tableros web consultables desde cualquier punto de venta.",
+        "El cambio busca reducir los quiebres de inventario, que según los gerentes consultados representan una de las principales causas de pérdida de ventas.",
+        "Los responsables de los proyectos señalan que la mayor dificultad no es técnica, sino la calidad de los datos registrados en las tiendas."
+      ]
+    },
+    {
+      "id": 12,
+      "titulo": "Un programa de recuperación de humedales cumple su primera fase",
+      "categoria": "ciencia",
+      "resumen": "El proyecto recuperó ciento veinte hectáreas y publicó sus resultados en un portal abierto.",
+      "imagen": "assets/img/noticia-12.jpg",
+      "credito": "Imagen representativa de la noticia. Archivo del aplicativo.",
+      "fecha": "2026-09-21",
+      "autor": "Redacción NewsWave",
+      "lectura": 6,
+      "destacada": false,
+      "principal": false,
+      "tags": ["ambiente", "humedales", "investigación"],
+      "contenido": [
+        "La primera fase del programa permitió recuperar ciento veinte hectáreas de humedal mediante el retiro de especies invasoras y la siembra de vegetación nativa.",
+        "Los monitoreos registran el retorno de doce especies de aves que no se observaban en la zona desde hace más de una década.",
+        "Toda la información del monitoreo se publica en un portal abierto, con fichas por especie y descargas en formatos de uso libre."
+      ]
+    }
+  ]
+}
