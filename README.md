@@ -1,10 +1,12 @@
 # NewsWave — Prototipo funcional 
 
 Plataforma web de noticias desarrollada para el módulo **Desarrollo de Front-end**.
-Esta versión corresponde a los dos primeros puntos de la Entrega 2:
+Esta versión corresponde a la Entrega 2:
 
 1. **Desarrollo en HTML, CSS y JavaScript**
 2. **Renderizado dinámico del catálogo desde un archivo JSON**
+3. **Favoritos y gestión de noticias propias (crear, editar y eliminar)**
+4. **Formulario de contacto con validaciones**
 
 No se utilizan librerías ni frameworks externos: todo está resuelto con HTML5,
 CSS3 y JavaScript estándar (ES5/ES6 compatible con los navegadores actuales).
@@ -41,7 +43,7 @@ Noticias-/
 ├── index.html              Página de inicio
 ├── noticias.html           Listado con filtros, búsqueda y paginación
 ├── detalle.html            Detalle de una noticia (recibe ?id=)
-├── favoritos.html          Favoritos guardados y gestión básica de noticias
+├── favoritos.html          Favoritos guardados y gestión de noticias propias
 ├── contacto.html           Formulario de contacto con validaciones
 ├── acerca.html             Página informativa del proyecto
 ├── assets/
@@ -53,7 +55,7 @@ Noticias-/
 │   │   ├── inicio.js       Render de la página de inicio
 │   │   ├── noticias.js     Filtros, búsqueda, orden y paginación
 │   │   ├── detalle.js      Render de la noticia y del panel lateral
-│   │   ├── favoritos.js    Lista de favoritos y creación de noticias propias
+│   │   ├── favoritos.js    Lista de favoritos y CRUD de noticias propias
 │   │   └── contacto.js     Validación del formulario de contacto
 │   └── img/                Imágenes de las noticias
 └── data/
@@ -133,9 +135,15 @@ archivo JSON: el sitio la muestra sin tocar el HTML.
 La estrella de cada tarjeta guarda o quita la noticia en `localStorage`
 (clave `newswave_favoritos`). En `favoritos.html` se listan las noticias
 guardadas, se pueden ordenar por fecha, quitar una a una o vaciar la lista.
-La misma página incluye un panel para crear noticias propias con una imagen del
-equipo; se guardan en `localStorage` (clave `newswave_custom`) y también pueden
-abrirse en el detalle.
+La misma página incluye un panel de gestión de noticias propias:
+
+- **Crear:** título, resumen, categoría e imagen del equipo (se guarda en base64).
+- **Leer:** las noticias creadas aparecen en favoritos y pueden abrirse en el detalle.
+- **Editar:** el botón *Editar* de la tarjeta carga sus datos en el formulario; si
+  no se elige otra imagen se conserva la actual.
+- **Eliminar:** al quitar de favoritos una noticia propia, esta se borra.
+
+Se guardan en `localStorage` con la clave `newswave_custom`.
 
 ## Punto 4 — Formulario con validaciones
 

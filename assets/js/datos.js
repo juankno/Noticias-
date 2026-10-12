@@ -149,11 +149,15 @@ var NW = (function () {
   /**
    * Construye el HTML de una tarjeta de noticia.
    * Se usa en el inicio, en el listado y en la vista de favoritos.
-   * Con opciones.quitar se agrega el boton para retirarla de favoritos.
+   * Con opciones.quitar se agrega el boton para retirarla de favoritos y
+   * con opciones.editar el boton para modificarla (solo noticias propias).
    */
   function plantillaTarjeta(datos, noticia, opciones) {
     var botonQuitar = opciones && opciones.quitar
       ? '        <button class="boton boton--pequeno boton--peligro boton-quitar" type="button" data-id="' + noticia.id + '">&#10005; Quitar</button>'
+      : '';
+    var botonEditar = opciones && opciones.editar
+      ? '        <button class="boton boton--claro boton--pequeno boton-editar" type="button" data-id="' + noticia.id + '">&#9998; Editar</button>'
       : '';
 
     return '' +
@@ -170,6 +174,7 @@ var NW = (function () {
       '      <div class="tarjeta__acciones">' +
       '        <button class="boton-favorito" type="button" data-id="' + noticia.id + '" ' +
       '                title="Guardar en favoritos" aria-label="Guardar en favoritos">&#9734;</button>' +
+      botonEditar +
       botonQuitar +
       '        <a class="boton boton--claro boton--pequeno" href="detalle.html?id=' + noticia.id + '">Ver más</a>' +
       '      </div>' +
