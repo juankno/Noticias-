@@ -786,7 +786,12 @@ h1, h2, h3 {
   .contacto { grid-template-columns: 1fr; }
   .bloque-doble { grid-template-columns: 1fr; gap: 24px; }
   .pie__columnas { grid-template-columns: 1fr 1fr; gap: 24px; }
-  .buscador-cabecera { display: none; }
+
+  /* El buscador pasa a una segunda fila de ancho completo en la cabecera. */
+  .cabecera .wrap { flex-wrap: wrap; row-gap: 10px; padding-bottom: 12px; }
+  .acciones-cabecera { display: contents; }
+  .boton-suscribirse { margin-left: auto; }
+  .buscador-cabecera { order: 1; width: 100%; }
 }
 
 /* Movil */
@@ -817,7 +822,8 @@ h1, h2, h3 {
   .menu a.activo { border-bottom-color: var(--red); }
 
   .cabecera { position: relative; }
-  .cabecera .wrap { min-height: 64px; }
+  .cabecera .wrap { min-height: 64px; column-gap: 10px; }
+  .marca__nombre { font-size: 21px; }
   .barra-superior .wrap { font-size: 11.5px; flex-direction: column; align-items: flex-start; padding-top: 6px; padding-bottom: 6px; }
 
   .rejilla--3,

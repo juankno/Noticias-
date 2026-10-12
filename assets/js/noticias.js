@@ -1,6 +1,6 @@
 /* ==========================================================================
    NewsWave - noticias.js
-   Listado de noticias: filtro por categoria, busqueda por titulo,
+   Listado de noticias: filtro por categoria, busqueda por texto,
    ordenamiento por fecha y paginacion. Todo se calcula sobre el arreglo
    que se carga desde el archivo JSON local.
    ========================================================================== */
@@ -28,6 +28,8 @@ document.addEventListener('DOMContentLoaded', function () {
   NW.cargarDatos()
     .then(function (respuesta) {
       datos = respuesta;
+      // Se incluyen las noticias creadas por el usuario en favoritos.
+      datos.noticias = NW.todasLasNoticias(datos);
       pintarChips();
 
       if (buscador) { buscador.value = estado.texto; }
@@ -101,8 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var resultado = datos.noticias.filter(function (noticia) {
       var coincideCategoria = estado.categoria === 'todas' || noticia.categoria === estado.categoria;
       var coincideTexto = texto === '' ||
-        NW.normalizar(noticia.titulo).indexOf(texto) !== -1 ||
-        NW.normalizar(noticia.resumen).indexOf(texto) !== -1;
+        NW.normalizar(textoBuscable(noticia)).indexOf(texto) !== -1;
 
       return coincideCategoria && coincideTexto;
     });
@@ -118,6 +119,17 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     return resultado;
+  }
+
+  /** Une los campos en los que se busca: titulo, resumen, categoria, etiquetas y contenido. */
+  function textoBuscable(noticia) {
+    return [
+      noticia.titulo,
+      noticia.resumen,
+      NW.nombreCategoria(datos, noticia.categoria),
+      (noticia.tags || []).join(' '),
+      (noticia.contenido || []).join(' ')
+    ].join(' ');
   }
 
   /* --- Pintado ---------------------------------------------------------- */

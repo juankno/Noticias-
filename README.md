@@ -97,9 +97,11 @@ genera a partir de él:
 
 - **Inicio:** noticia principal (campo `principal`), tres destacadas (campo
   `destacada`), tarjetas de categorías y los contadores del encabezado.
-- **Listado:** las 12 noticias con filtro por categoría, búsqueda por título y
-  resumen (sin distinguir tildes ni mayúsculas), ordenamiento por fecha o título
-  y paginación de 8 noticias por página.
+- **Listado:** las 12 noticias (más las creadas por el usuario) con filtro por
+  categoría, búsqueda en título, resumen, categoría, etiquetas y contenido (sin
+  distinguir tildes ni mayúsculas), ordenamiento por fecha o título y paginación
+  de 8 noticias por página. El buscador de la cabecera, presente en todas las
+  páginas, lleva al listado con la búsqueda aplicada (`noticias.html?q=texto`).
 - **Detalle:** la noticia se ubica por el parámetro `?id=` de la dirección; si el
   identificador no existe se muestra un mensaje de error con un enlace de regreso.
   El panel lateral calcula las noticias relacionadas por categoría.
