@@ -152,6 +152,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     pintarPaginacion(paginas);
+    NW.sincronizarFavoritos();
   }
 
   function pintarPaginacion(paginas) {

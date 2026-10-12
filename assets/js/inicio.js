@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
       pintarPrincipal(datos);
       pintarDestacadas(datos);
       pintarSecciones(datos);
+      NW.sincronizarFavoritos();
 
       if (totalNoticias) { totalNoticias.textContent = datos.noticias.length; }
       if (totalCategorias) { totalCategorias.textContent = datos.categorias.length; }

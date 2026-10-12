@@ -13,13 +13,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   NW.cargarDatos()
     .then(function (datos) {
-      // Cargar también las noticias custom del localStorage para que el detalle las encuentre
-      try {
-        var custom = localStorage.getItem("newswave_custom");
-        if (custom) {
-          datos.noticias = JSON.parse(custom).concat(datos.noticias);
-        }
-      } catch (e) {}
+      // Se incluyen las noticias creadas por el usuario para poder mostrarlas.
+      datos.noticias = NW.todasLasNoticias(datos);
 
       var id = Number(NW.parametro("id"));
       var noticia = datos.noticias.filter(function (n) {
@@ -40,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
       document.title = noticia.titulo + " | NewsWave";
       pintarNoticia(datos, noticia);
       pintarLateral(datos, noticia);
+      NW.sincronizarFavoritos();
     })
     .catch(function (error) {
       NW.mostrarError(contenedor, error.message);

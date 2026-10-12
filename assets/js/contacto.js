@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
+  form.addEventListener("reset", limpiarErrores);
+
   form.addEventListener("submit", function (evento) {
     evento.preventDefault();
 
@@ -64,26 +66,25 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function mostrarErrorCampo(elemento, mensajeTexto) {
-    elemento.style.borderColor = "var(--red, #C8102E)";
-
     var contenedorCampo = elemento.closest(".campo");
-    if (contenedorCampo) {
-      var errorDiv = document.createElement("div");
-      errorDiv.className = "error-mensaje";
-      errorDiv.style.color = "var(--red, #C8102E)";
-      errorDiv.style.fontSize = "12px";
-      errorDiv.style.marginTop = "4px";
-      errorDiv.textContent = mensajeTexto;
-      contenedorCampo.appendChild(errorDiv);
+    if (!contenedorCampo) {
+      return;
     }
+
+    var error = document.createElement("p");
+    error.className = "campo__error";
+    error.textContent = mensajeTexto;
+
+    contenedorCampo.classList.add("campo--error");
+    contenedorCampo.appendChild(error);
   }
 
   function limpiarErrores() {
-    var inputs = form.querySelectorAll("input, select, textarea");
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].style.borderColor = "";
+    var campos = form.querySelectorAll(".campo--error");
+    for (var i = 0; i < campos.length; i++) {
+      campos[i].classList.remove("campo--error");
     }
-    var mensajesError = form.querySelectorAll(".error-mensaje");
+    var mensajesError = form.querySelectorAll(".campo__error");
     for (var j = 0; j < mensajesError.length; j++) {
       mensajesError[j].remove();
     }
@@ -92,8 +93,8 @@ document.addEventListener("DOMContentLoaded", function () {
   function mostrarExito() {
     form.innerHTML =
       "" +
-      '<div class="estado" style="padding: 32px 0;">' +
-      '  <div style="font-size: 40px; color: #28a745;">&#10004;</div>' +
+      '<div class="estado">' +
+      '  <div class="estado__icono estado__icono--exito">&#10004;</div>' +
       '  <h3 class="mt-16">¡Mensaje enviado con éxito!</h3>' +
       '  <p class="meta mt-8">Gracias por contactarnos. Nuestro equipo revisará tu solicitud y te responderá pronto.</p>' +
       '  <a class="boton boton--oscuro mt-24" href="index.html">Volver al inicio</a>' +

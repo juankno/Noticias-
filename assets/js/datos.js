@@ -8,6 +8,8 @@ var NW = (function () {
   'use strict';
 
   var RUTA_JSON = 'data/noticias.json';
+  var CLAVE_FAVORITOS = 'newswave_favoritos';
+  var CLAVE_NOTICIAS_PROPIAS = 'newswave_custom';
   var cache = null; // se guarda la respuesta para no pedir el archivo varias veces
 
   var MESES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
@@ -85,11 +87,75 @@ var NW = (function () {
     return new URLSearchParams(window.location.search).get(nombre);
   }
 
+  /* --- Almacenamiento local (localStorage) ----------------------------- */
+
+  function leerLista(clave) {
+    try {
+      var valor = localStorage.getItem(clave);
+      return valor ? JSON.parse(valor) : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function guardarLista(clave, lista) {
+    try {
+      localStorage.setItem(clave, JSON.stringify(lista));
+    } catch (e) {
+      console.error('No se pudo guardar en localStorage', e);
+    }
+  }
+
+  /** Ids de las noticias marcadas como favoritas (siempre numericos). */
+  function obtenerFavoritos() {
+    return leerLista(CLAVE_FAVORITOS).map(Number);
+  }
+
+  function guardarFavoritos(ids) {
+    guardarLista(CLAVE_FAVORITOS, ids);
+  }
+
+  /** Agrega o quita una noticia de favoritos. Devuelve true si quedo guardada. */
+  function alternarFavorito(id) {
+    var favoritos = obtenerFavoritos();
+    var indice = favoritos.indexOf(id);
+
+    if (indice === -1) {
+      favoritos.push(id);
+    } else {
+      favoritos.splice(indice, 1);
+    }
+
+    guardarFavoritos(favoritos);
+    return indice === -1;
+  }
+
+  /** Noticias creadas por el usuario desde el panel de gestion. */
+  function obtenerNoticiasPropias() {
+    return leerLista(CLAVE_NOTICIAS_PROPIAS);
+  }
+
+  function guardarNoticiasPropias(noticias) {
+    guardarLista(CLAVE_NOTICIAS_PROPIAS, noticias);
+  }
+
+  /** Catalogo del JSON precedido por las noticias creadas por el usuario. */
+  function todasLasNoticias(datos) {
+    return obtenerNoticiasPropias().concat(datos.noticias);
+  }
+
+  /* --- Plantillas y estados --------------------------------------------- */
+
   /**
    * Construye el HTML de una tarjeta de noticia.
    * Se usa en el inicio, en el listado y en la vista de favoritos.
+   * Con opciones.quitar se agrega el boton para retirarla de favoritos.
    */
-  function plantillaTarjeta(datos, noticia) {
+  function plantillaTarjeta(datos, noticia, opciones) {
+    var botonQuitar = opciones && opciones.quitar
+      ? '        <button class="boton boton--pequeno boton--peligro boton-quitar" type="button" data-id="' + noticia.id + '">&#10005; Quitar</button>'
+      : '';
+
     return '' +
       '<article class="tarjeta">' +
       '  <a href="detalle.html?id=' + noticia.id + '">' +
@@ -104,11 +170,33 @@ var NW = (function () {
       '      <div class="tarjeta__acciones">' +
       '        <button class="boton-favorito" type="button" data-id="' + noticia.id + '" ' +
       '                title="Guardar en favoritos" aria-label="Guardar en favoritos">&#9734;</button>' +
+      botonQuitar +
       '        <a class="boton boton--claro boton--pequeno" href="detalle.html?id=' + noticia.id + '">Ver más</a>' +
       '      </div>' +
       '    </div>' +
       '  </div>' +
       '</article>';
+  }
+
+  /** Actualiza el estado visual de todos los botones de favorito de la pagina. */
+  function sincronizarFavoritos() {
+    var favoritos = obtenerFavoritos();
+    var botones = document.querySelectorAll('.boton-favorito, .boton-favorito-detalle');
+
+    for (var i = 0; i < botones.length; i++) {
+      var boton = botones[i];
+      var guardado = favoritos.indexOf(Number(boton.dataset.id)) !== -1;
+      var esDetalle = boton.classList.contains('boton-favorito-detalle');
+
+      boton.classList.toggle('activo', guardado);
+      boton.setAttribute('aria-pressed', String(guardado));
+
+      if (esDetalle) {
+        boton.innerHTML = guardado ? '&#9733; Guardado' : '&#9734; Agregar a favoritos';
+      } else {
+        boton.innerHTML = guardado ? '&#9733;' : '&#9734;';
+      }
+    }
   }
 
   /** Muestra un mensaje de error dentro de un contenedor. */
@@ -125,7 +213,14 @@ var NW = (function () {
     limpiar: limpiar,
     normalizar: normalizar,
     parametro: parametro,
+    obtenerFavoritos: obtenerFavoritos,
+    guardarFavoritos: guardarFavoritos,
+    alternarFavorito: alternarFavorito,
+    obtenerNoticiasPropias: obtenerNoticiasPropias,
+    guardarNoticiasPropias: guardarNoticiasPropias,
+    todasLasNoticias: todasLasNoticias,
     plantillaTarjeta: plantillaTarjeta,
+    sincronizarFavoritos: sincronizarFavoritos,
     mostrarError: mostrarError
   };
 })();

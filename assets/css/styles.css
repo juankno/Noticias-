@@ -322,6 +322,8 @@ h1, h2, h3 {
 .boton--claro { background: #fff; color: var(--navy); border: 1.5px solid var(--line); }
 .boton--claro:hover { border-color: #c9d2e0; }
 .boton--pequeno { padding: 8px 14px; font-size: 13px; }
+.boton--peligro { background: #fff; color: var(--red); border: 1.5px solid #f5c2cb; }
+.boton--peligro:hover { background: #fdecef; }
 
 .etiqueta {
   display: inline-block;
@@ -440,6 +442,12 @@ h1, h2, h3 {
 
 .campo textarea { min-height: 118px; resize: vertical; }
 
+.campo--error input,
+.campo--error select,
+.campo--error textarea { border-color: var(--red); }
+
+.campo__error { color: var(--red); font-size: 12.5px; }
+
 .aviso {
   border-radius: 8px;
   padding: 12px 15px;
@@ -461,6 +469,9 @@ h1, h2, h3 {
 }
 
 .estado h3 { font-size: 22px; color: var(--ink); margin-bottom: 8px; }
+.estado__icono { font-size: 34px; }
+.estado__icono--exito { font-size: 40px; color: var(--ok); }
+.estado__texto { max-width: 520px; margin: 8px auto 0; }
 
 /* ----------------------------------------------------- 6. Vistas */
 /* Barra de contexto */
@@ -708,6 +719,20 @@ h1, h2, h3 {
   font-size: 15.5px;
   line-height: 1.3;
 }
+
+/* Favoritos */
+.favoritos__barra {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.favoritos__acciones { display: flex; gap: 8px; }
+
+.formulario-crear { display: flex; flex-direction: column; gap: 14px; }
 
 /* Contacto */
 .contacto {

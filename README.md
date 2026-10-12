@@ -37,27 +37,32 @@ editarse a mano.
 ## Estructura del proyecto
 
 ```
-newswave-app/
+Noticias-/
 ├── index.html              Página de inicio
 ├── noticias.html           Listado con filtros, búsqueda y paginación
 ├── detalle.html            Detalle de una noticia (recibe ?id=)
-├── favoritos.html          Lista de favoritos (pendiente: punto 3)
-├── contacto.html           Formulario de contacto (pendiente: punto 4)
+├── favoritos.html          Favoritos guardados y gestión básica de noticias
+├── contacto.html           Formulario de contacto con validaciones
 ├── acerca.html             Página informativa del proyecto
 ├── assets/
 │   ├── css/
 │   │   └── styles.css      Hoja de estilos única, comentada por secciones
 │   ├── js/
-│   │   ├── datos.js        Carga del JSON y utilidades compartidas
-│   │   ├── layout.js       Menú responsivo, buscador y estado activo
+│   │   ├── datos.js        Carga del JSON, localStorage y utilidades compartidas
+│   │   ├── layout.js       Menú responsivo, buscador, fecha y botón de favorito
 │   │   ├── inicio.js       Render de la página de inicio
 │   │   ├── noticias.js     Filtros, búsqueda, orden y paginación
-│   │   └── detalle.js      Render de la noticia y del panel lateral
+│   │   ├── detalle.js      Render de la noticia y del panel lateral
+│   │   ├── favoritos.js    Lista de favoritos y creación de noticias propias
+│   │   └── contacto.js     Validación del formulario de contacto
 │   └── img/                Imágenes de las noticias
 └── data/
     ├── noticias.json       Fuente de datos del aplicativo
     └── noticias-respaldo.js  Copia generada del JSON (modo file://)
 ```
+
+Cada página carga los scripts en este orden: `noticias-respaldo.js`, `datos.js`,
+`layout.js` y, por último, el archivo de su vista.
 
 ---
 
@@ -123,15 +128,23 @@ archivo JSON: el sitio la muestra sin tocar el HTML.
 
 ---
 
-## Pendiente para los siguientes puntos de la entrega
+## Punto 3 — Favoritos
 
-- **Punto 3 — Favoritos:** almacenar la lista con `localStorage` y mostrarla en
-  `favoritos.html`. El botón de estrella ya existe en las tarjetas y cambia de
-  estado visual, pero todavía no guarda la selección.
-- **Punto 4 — Formularios con validaciones:** validar los campos obligatorios y
-  el formato del correo en `contacto.html`, con mensajes de error y de
-  confirmación.
-- **Punto 5 — Código estructurado:** revisión final y documentación del código.
+La estrella de cada tarjeta guarda o quita la noticia en `localStorage`
+(clave `newswave_favoritos`). En `favoritos.html` se listan las noticias
+guardadas, se pueden ordenar por fecha, quitar una a una o vaciar la lista.
+La misma página incluye un panel para crear noticias propias con una imagen del
+equipo; se guardan en `localStorage` (clave `newswave_custom`) y también pueden
+abrirse en el detalle.
+
+## Punto 4 — Formulario con validaciones
+
+`contacto.html` valida los campos obligatorios, el formato del correo y la
+longitud mínima del mensaje, muestra el error debajo de cada campo y, si todo es
+correcto, reemplaza el formulario por un mensaje de confirmación.
+
+## Pendiente
+
 - **Punto 6 — Repositorio en GitHub:** publicación del proyecto.
 
 ---
