@@ -104,7 +104,9 @@ genera a partir de él:
   páginas, lleva al listado con la búsqueda aplicada (`noticias.html?q=texto`).
 - **Detalle:** la noticia se ubica por el parámetro `?id=` de la dirección; si el
   identificador no existe se muestra un mensaje de error con un enlace de regreso.
-  El panel lateral calcula las noticias relacionadas por categoría.
+  El panel lateral muestra si la noticia está en favoritos y calcula las
+  noticias relacionadas por categoría. El botón *Compartir* usa el menú nativo
+  del dispositivo o, si no existe, copia el enlace.
 
 Para agregar una noticia basta con añadir un objeto al arreglo `noticias` del
 archivo JSON: el sitio la muestra sin tocar el HTML.
@@ -136,7 +138,8 @@ archivo JSON: el sitio la muestra sin tocar el HTML.
 
 La estrella de cada tarjeta guarda o quita la noticia en `localStorage`
 (clave `newswave_favoritos`). En `favoritos.html` se listan las noticias
-guardadas, se pueden ordenar por fecha, quitar una a una o vaciar la lista.
+guardadas con la fecha de la última actualización de la lista, y se pueden
+ordenar por fecha, quitar una a una o vaciar la lista.
 La misma página incluye un panel de gestión de noticias propias:
 
 - **Crear:** título, resumen, categoría e imagen del equipo (se guarda en base64).
@@ -149,13 +152,22 @@ Se guardan en `localStorage` con la clave `newswave_custom`.
 
 ## Punto 4 — Formulario con validaciones
 
-`contacto.html` valida los campos obligatorios, el formato del correo y la
-longitud mínima del mensaje, muestra el error debajo de cada campo y, si todo es
-correcto, reemplaza el formulario por un mensaje de confirmación.
+`contacto.html` valida los campos obligatorios (nombre, correo, asunto y
+mensaje), el formato del correo, la longitud mínima del mensaje (10 caracteres)
+y la aceptación de la política de datos. Muestra el error debajo de cada campo
+y, si todo es correcto, reemplaza el formulario por un mensaje de confirmación
+con el plazo de respuesta.
 
-## Pendiente
+## Punto 5 — Código estructurado
 
-- **Punto 6 — Repositorio en GitHub:** publicación del proyecto.
+Un archivo común (`datos.js`, objeto `NW`) y un archivo JavaScript por vista. La
+hoja de estilos está dividida en siete secciones comentadas: variables y reset,
+utilidades, encabezado y menú, pie de página, componentes, vistas y diseño
+responsivo.
+
+## Punto 6 — Repositorio en GitHub
+
+https://github.com/johannamahecha2023/Noticias-
 
 ---
 

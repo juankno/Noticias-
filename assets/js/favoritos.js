@@ -63,7 +63,9 @@ document.addEventListener("DOMContentLoaded", function () {
     return (
       "" +
       '<div class="favoritos__barra">' +
-      "  <p><strong>" + favoritas.length + "</strong> noticias guardadas</p>" +
+      "  <p><strong>" + favoritas.length + "</strong> noticias guardadas" +
+      textoActualizacion() +
+      "</p>" +
       '  <div class="favoritos__acciones">' +
       '    <button type="button" class="boton boton--claro boton--pequeno" id="btn-ordenar-fav">' +
       (ordenRecientes ? "Más antiguas primero" : "Más recientes primero") +
@@ -82,6 +84,15 @@ document.addEventListener("DOMContentLoaded", function () {
         .join("") +
       "</div>"
     );
+  }
+
+  function textoActualizacion() {
+    var fecha = NW.fechaFavoritos();
+    if (!fecha) { return ""; }
+
+    var hora = fecha.toLocaleTimeString("es-CO", { hour: "2-digit", minute: "2-digit" });
+    var iso = fecha.getFullYear() + "-" + (fecha.getMonth() + 1) + "-" + fecha.getDate();
+    return ' <span class="meta">&middot; Última actualización: ' + NW.fechaCorta(iso) + ", " + hora + "</span>";
   }
 
   function plantillaFormulario() {

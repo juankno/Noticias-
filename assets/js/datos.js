@@ -10,6 +10,7 @@ var NW = (function () {
   var RUTA_JSON = 'data/noticias.json';
   var CLAVE_FAVORITOS = 'newswave_favoritos';
   var CLAVE_NOTICIAS_PROPIAS = 'newswave_custom';
+  var CLAVE_FECHA_FAVORITOS = 'newswave_favoritos_fecha';
   var cache = null; // se guarda la respuesta para no pedir el archivo varias veces
 
   var MESES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
@@ -113,6 +114,21 @@ var NW = (function () {
 
   function guardarFavoritos(ids) {
     guardarLista(CLAVE_FAVORITOS, ids);
+    try {
+      localStorage.setItem(CLAVE_FECHA_FAVORITOS, new Date().toISOString());
+    } catch (e) {
+      // sin almacenamiento disponible no se registra la fecha
+    }
+  }
+
+  /** Fecha (Date) de la ultima modificacion de la lista, o null si no existe. */
+  function fechaFavoritos() {
+    try {
+      var valor = localStorage.getItem(CLAVE_FECHA_FAVORITOS);
+      return valor ? new Date(valor) : null;
+    } catch (e) {
+      return null;
+    }
   }
 
   /** Agrega o quita una noticia de favoritos. Devuelve true si quedo guardada. */
@@ -187,6 +203,7 @@ var NW = (function () {
   function sincronizarFavoritos() {
     var favoritos = obtenerFavoritos();
     var botones = document.querySelectorAll('.boton-favorito, .boton-favorito-detalle');
+    var estados = document.querySelectorAll('[data-estado-favorito]');
 
     for (var i = 0; i < botones.length; i++) {
       var boton = botones[i];
@@ -201,6 +218,13 @@ var NW = (function () {
       } else {
         boton.innerHTML = guardado ? '&#9733;' : '&#9734;';
       }
+    }
+
+    // Estado en la ficha lateral del detalle.
+    for (var j = 0; j < estados.length; j++) {
+      var enLista = favoritos.indexOf(Number(estados[j].dataset.estadoFavorito)) !== -1;
+      estados[j].classList.toggle('texto-rojo', enLista);
+      estados[j].innerHTML = enLista ? '&#9733; En favoritos' : 'No guardada';
     }
   }
 
@@ -220,6 +244,7 @@ var NW = (function () {
     parametro: parametro,
     obtenerFavoritos: obtenerFavoritos,
     guardarFavoritos: guardarFavoritos,
+    fechaFavoritos: fechaFavoritos,
     alternarFavorito: alternarFavorito,
     obtenerNoticiasPropias: obtenerNoticiasPropias,
     guardarNoticiasPropias: guardarNoticiasPropias,
